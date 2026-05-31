@@ -3,7 +3,7 @@ from ui import show_task
 task_list = []
 
 def add_task():
-    return 0
+    task_list.append(str(input("Task Name: ")))
 
 def show_tasks():
     if len(task_list) > 0:
@@ -15,7 +15,14 @@ def show_tasks():
         print("No tasks, add a new task")
 
 def delete_task():
-    return 0
+    while True:
+        try:
+            option = int(input("Task Number to delete: "))
+        except ValueError:
+            print("Invalid option")
+        except IndexError:
+            print("Invalid option")
+    task_list.pop(option-1)
 
 def complete_task():
     return 0

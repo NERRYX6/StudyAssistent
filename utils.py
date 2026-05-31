@@ -8,4 +8,8 @@ def out_of_range():
     pause()
 
 def clear():
-    os.system("cls")
+    os.system("cls" if os.name == "nt" else "clear")
+
+def end_of_menu():
+    pause()
+    clear()

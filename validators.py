@@ -1,4 +1,4 @@
-def input_validator():
+def input_option_validator():
     while True:
         try:
             option = int(input("Choose an option:"))
