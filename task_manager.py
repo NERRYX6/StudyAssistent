@@ -18,6 +18,7 @@ def delete_task():
     while True:
         try:
             option = int(input("Task Number to delete: "))
+            break
         except ValueError:
             print("Invalid option")
         except IndexError:
