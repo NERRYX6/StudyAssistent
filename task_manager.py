@@ -1,16 +1,23 @@
 from ui import show_task
+from file_manager import load
+from utils import add_time_mark
 
-task_list = []
+task_list = list(load("tasks"))
 
 def add_task():
-    task_list.append(str(input("Task Name: ")))
+    task_list.append({"id": len(task_list),
+                      "title": str(input("Task Name: ")),
+                      "comment": str(input("Comment: ")),
+                      "deadline at": int(input("Deadline at: ")),
+                      "status": False,
+                      "created at": add_time_mark(),
+                      "completed at": None
+                      })
 
 def show_tasks():
     if len(task_list) > 0:
-        n=1
         for task in task_list:
-            show_task(task, n)
-            n+=1
+            show_task(task["title"], task["id"])
     else:
         print("No tasks, add a new task")
 

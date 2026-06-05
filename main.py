@@ -1,8 +1,7 @@
 import sys
-
 from ui import show_menu
 from utils import out_of_range, end_of_menu
-from file_manager import save_data
+from file_manager import save
 from menu_functions import *
 import task_manager
 import notes_manager
@@ -76,7 +75,7 @@ def main():
                 statistics_manager.show_stats()
                 end_of_menu()
             case 5:
-                save_data()
+                save()
             case 6:
                 return 0
             case _:
