@@ -1,4 +1,5 @@
 import sys
+
 from ui import show_menu
 from utils import out_of_range, end_of_menu
 from file_manager import save
@@ -25,16 +26,18 @@ def main():
                         case 3:
                             task_manager.delete_task()
                         case 4:
-                            task_manager.complete_task()
+                            save(task_manager.task_list, "tasks")
                         case 5:
-                            task_manager.edit_task()
+                            task_manager.complete_task()
                         case 6:
-                            task_manager.search_task()
+                            task_manager.edit_task()
                         case 7:
-                            task_manager.sort_tasks()
+                            task_manager.search_task()
                         case 8:
-                            task_manager.expired_tasks()
+                            task_manager.sort_tasks()
                         case 9:
+                            task_manager.expired_tasks()
+                        case 10:
                             break
                         case _:
                             out_of_range()
@@ -75,7 +78,7 @@ def main():
                 statistics_manager.show_stats()
                 end_of_menu()
             case 5:
-                save()
+                save([],"*")
             case 6:
                 return 0
             case _:

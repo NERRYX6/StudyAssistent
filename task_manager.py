@@ -1,8 +1,9 @@
 from ui import show_task
-from file_manager import load
+from file_manager import list_with_saves
 from utils import add_time_mark
 
-task_list = list(load("tasks"))
+task_list = list_with_saves["tasks"] if "tasks" in list_with_saves else []
+
 
 def add_task():
     task_list.append({"id": len(task_list),
@@ -17,7 +18,7 @@ def add_task():
 def show_tasks():
     if len(task_list) > 0:
         for task in task_list:
-            show_task(task["title"], task["id"])
+            show_task(task["title"], task["id"]+1)
     else:
         print("No tasks, add a new task")
 
