@@ -1,15 +1,22 @@
 from ui import show_task
-from file_manager import list_with_saves
 from utils import add_time_mark
 
-task_list = list_with_saves["tasks"] if "tasks" in list_with_saves else []
-
+task_list = []
 
 def add_task():
+    title = str(input("Task Name: "))
+    comment = str(input("Comment: "))
+    while True:
+        try:
+            deadline = int(input("Deadline at: "))
+            break
+        except ValueError:
+            print("Invalid option")
+
     task_list.append({"id": len(task_list),
-                      "title": str(input("Task Name: ")),
-                      "comment": str(input("Comment: ")),
-                      "deadline at": int(input("Deadline at: ")),
+                      "title": title,
+                      "comment": comment,
+                      "deadline at": deadline,
                       "status": False,
                       "created at": add_time_mark(),
                       "completed at": None

@@ -26,7 +26,7 @@ def main():
                         case 3:
                             task_manager.delete_task()
                         case 4:
-                            save(task_manager.task_list, "tasks")
+                            save()
                         case 5:
                             task_manager.complete_task()
                         case 6:
@@ -78,7 +78,7 @@ def main():
                 statistics_manager.show_stats()
                 end_of_menu()
             case 5:
-                save([],"*")
+                save()
             case 6:
                 return 0
             case _:
