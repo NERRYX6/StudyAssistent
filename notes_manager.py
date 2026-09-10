@@ -1,3 +1,5 @@
+notes_list = []
+
 def create_note():
     return 0
 

@@ -12,4 +12,5 @@ def show_menu(options):
     return input_option_validator() if options != menu_functions.statistics_menu else utils.pause()
 
 def show_task(task, number):
-    print(f"{number}. {task}")
+    if task is not None:
+        print(f"{number}. {task}")
