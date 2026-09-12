@@ -1,9 +1,21 @@
+"""Task structure
+      ↓
+Add / Show / Remove
+      ↓
+Complete / Edit
+      ↓
+JSON saving/loading
+      ↓
+Search / Sort / Expired
+"""
+
 import sys
 
 from ui import show_menu
 from utils import out_of_range, end_of_menu
 from file_manager import save
 from menu_functions import *
+from task_manager import task_list
 import task_manager
 import notes_manager
 import pomodoro
@@ -26,7 +38,7 @@ def main():
                         case 3:
                             task_manager.delete_task()
                         case 4:
-                            save()
+                            save(task_list, "tasks")
                         case 5:
                             task_manager.complete_task()
                         case 6:
@@ -78,7 +90,7 @@ def main():
                 statistics_manager.show_stats()
                 end_of_menu()
             case 5:
-                save()
+                save(task_list, "tasks")
             case 6:
                 return 0
             case _:

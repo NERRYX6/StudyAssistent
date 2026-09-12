@@ -1,7 +1,8 @@
 from ui import show_task
 from utils import add_time_mark
+from file_manager import load_data
 
-task_list = []
+task_list = load_data("tasks")
 
 def add_task():
     title = str(input("Task Name: "))
@@ -12,20 +13,20 @@ def add_task():
             break
         except ValueError:
             print("Invalid option")
-
-    task_list.append({"id": len(task_list),
-                      "title": title,
-                      "comment": comment,
-                      "deadline at": deadline,
-                      "status": False,
-                      "created at": add_time_mark(),
-                      "completed at": None
-                      })
+    change = {"id": len(task_list),
+              "title": title,
+              "comment": comment,
+              "deadline at": deadline,
+              "status": False,
+              "created at": add_time_mark(),
+              "completed at": None
+              }
+    task_list[f"task{len(task_list)+1}"] = change
 
 def show_tasks():
     if len(task_list) > 0:
-        for task in task_list:
-            show_task(task["title"], task["id"]+1)
+        for i in range(len(task_list)):
+            show_task(task_list[f"task{i+1}"]["title"], task_list[f"task{i+1}"]["id"]+1)
     else:
         print("No tasks, add a new task")
 
@@ -33,12 +34,14 @@ def delete_task():
     while True:
         try:
             option = int(input("Task Number to delete: "))
+            del task_list[f"task{option}"]
             break
         except ValueError:
             print("Invalid option")
         except IndexError:
             print("Invalid option")
-    task_list.pop(option-1)
+        except KeyError:
+            print("Invalid option")
 
 def complete_task():
     return 0
