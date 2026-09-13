@@ -6,7 +6,12 @@ def load_data(key):
     try:
         with open('task_list.json', 'r') as f:
             task_list = load(f)
-        return task_list[key]
+        if task_list is not None and key != "task_ID":
+            return task_list[key]
+        elif key == "task_ID":
+            return None
+        else:
+            return {}
     except FileNotFoundError:
         return {}
     except JSONDecodeError:

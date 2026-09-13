@@ -1,6 +1,5 @@
 import os
 import sys
-from time import localtime
 
 def pause():
     input("Press any key to continue...")
@@ -18,6 +17,3 @@ def end_of_menu():
 
 def end_of_run():
     sys.exit(0)
-
-def add_time_mark():
-     return localtime()
