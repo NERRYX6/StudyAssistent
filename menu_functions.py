@@ -1,7 +1,4 @@
 main_menu_funcs = ['Tasks',
-                   'Notes',
-                   'Pomodoro Timer',
-                   'Statistics',
                    'Save Data',
                    'Exit']
 
@@ -11,9 +8,6 @@ task_menu_funcs = ['Add Task',
                    'Save Tasks',
                    'Mark Task as completed',
                    'Edit Task',
-                   'Search Task',
-                   'Sort Tasks',
-                   'Expired Tasks',
                    'Back']
 
 note_menu_funcs = ['Add Note',

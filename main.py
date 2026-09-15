@@ -17,9 +17,6 @@ from file_manager import save
 from menu_functions import *
 from task_manager import task_list
 import task_manager
-import notes_manager
-import pomodoro
-import statistics_manager
 
 def main():
 
@@ -44,54 +41,13 @@ def main():
                         case 6:
                             task_manager.edit_task()
                         case 7:
-                            task_manager.search_task()
-                        case 8:
-                            task_manager.sort_tasks()
-                        case 9:
-                            task_manager.expired_tasks()
-                        case 10:
                             break
                         case _:
                             out_of_range()
                     end_of_menu()
             case 2:
-                while True:
-                    option = show_menu(note_menu_funcs)
-                    match option:
-                        case 1:
-                            notes_manager.create_note()
-                        case 2:
-                            notes_manager.show_notes()
-                        case 3:
-                            notes_manager.delete_note()
-                        case 4:
-                            notes_manager.edit_note()
-                        case 5:
-                            notes_manager.search_notes()
-                        case 6:
-                            break
-                        case _:
-                            out_of_range()
-                    end_of_menu()
-            case 3:
-                while True:
-                    option = show_menu(pomodoro_timer_menu_options)
-                    match option:
-                        case 1:
-                            pomodoro.set_focus_time()
-                        case 2:
-                            pomodoro.set_break_time()
-                        case 3:
-                            break
-                        case _:
-                            out_of_range()
-                    end_of_menu()
-            case 4:
-                statistics_manager.show_stats()
-                end_of_menu()
-            case 5:
                 save(task_list, "tasks")
-            case 6:
+            case 3:
                 return 0
             case _:
                 out_of_range()

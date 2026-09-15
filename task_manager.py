@@ -1,26 +1,31 @@
 from ui import show_task
 from file_manager import load_data
 
-task_id = load_data("task_ID")
-task_list = load_data("tasks")
+task_info = load_data()
+task_id = task_info["task_ID"]
+task_list = task_info["tasks"]
 
 def add_task():
     global task_id
 
     title = str(input("Task Name: "))
     comment = str(input("Comment: "))
-    change = {"id": len(task_list),
+    change = {"id": task_id,
               "title": title,
               "comment": comment,
               "completed": False
               }
+
     task_id += 1
-    task_list[f"task{task_id+1}"] = change
+    task_list[f"{task_id+1}"] = change
 
 def show_tasks():
+    num = 1
+
     if len(task_list) > 0:
         for task in task_list.values():
-            show_task(task["title"], task["id"])
+            show_task(task["title"], num)
+            num += 1
     else:
         print("No tasks, add a new task")
 

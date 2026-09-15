@@ -2,22 +2,22 @@ from json import dump, load, JSONDecodeError
 
 all_list = {}
 
-def load_data(key):
-    try:
-        with open('task_list.json', 'r') as f:
-            task_list = load(f)
-        if task_list is not None and key != "task_ID":
-            return task_list[key]
-        elif key == "task_ID":
-            return None
-        else:
-            return {}
-    except FileNotFoundError:
-        return {}
-    except JSONDecodeError:
-        return {}
+def load_data():
+    defaults = {
+        "task_ID": 0,
+        "tasks": {}
+    }
 
-def save(save_list, key):
-    all_list[key] = save_list
+    try:
+        with open("task_list.json", "r") as f:
+            data = load(f)
+            return data
+
+    except (FileNotFoundError, JSONDecodeError):
+        return defaults
+
+def save(value, key):
+    all_list[key] = value
+
     with open('task_list.json', 'w') as f:
         dump(all_list, f, indent=4)
