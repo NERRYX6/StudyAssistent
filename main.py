@@ -15,7 +15,7 @@ from ui import show_menu
 from utils import out_of_range, end_of_menu
 from file_manager import save
 from menu_functions import *
-from task_manager import task_list
+from task_manager import task_info
 import task_manager
 
 def main():
@@ -35,7 +35,7 @@ def main():
                         case 3:
                             task_manager.delete_task()
                         case 4:
-                            save(task_list, "tasks")
+                            save(task_info)
                         case 5:
                             task_manager.complete_task()
                         case 6:
@@ -46,7 +46,7 @@ def main():
                             out_of_range()
                     end_of_menu()
             case 2:
-                save(task_list, "tasks")
+                save(task_info)
             case 3:
                 return 0
             case _:

@@ -16,8 +16,6 @@ def load_data():
     except (FileNotFoundError, JSONDecodeError):
         return defaults
 
-def save(value, key):
-    all_list[key] = value
-
+def save(value):
     with open('task_list.json', 'w') as f:
-        dump(all_list, f, indent=4)
+        dump(value, f, indent=4)
